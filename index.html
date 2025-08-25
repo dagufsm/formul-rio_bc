@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário de Cadastro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 40px 10px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Fundo com imagem */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("https://www.ufsm.br/app/uploads/sites/961/2025/08/Reitoria-Carolina-Lemos.jpg");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    .form-container {
+      background-color: rgba(139, 139, 139, 0.85); /* cinza com 85% transparência */
+      max-width: 720px;
+      width: 100%;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      padding: 40px 60px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .form-container img {
+      max-width: 200px; /* imagem maior */
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+      display: block;
+      margin-bottom: 6px;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      font-size: 16px;
+      padding: 10px 12px;
+      margin-bottom: 25px;
+      border: 1px solid #dadce0;
+      border-radius: 4px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border: 2px solid #673ab7;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .radio-group {
+      margin-bottom: 25px;
+      text-align: left;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      margin-right: 20px;
+      color: #fff;
+    }
+
+    button {
+      background-color: #FF0000;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #5e35b1;
+    }
+
+    /* readonly fica em cinza */
+    input[readonly] {
+      background-color: #e9e9e9;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <!-- Imagem acima do título -->
+    <img src="https://www.ufsm.br/app/uploads/sites/961/2025/08/Banco-Central-1.png" alt="Banco Central" />
+    
+    <h1>Formulário de Cadastro</h1>
+    <form id="docForm">
+      <label>Órgão</label>
+      <input type="text" value="Banco Central" readonly />
+      <input type="hidden" name="orgao" value="Banco Central" />
+
+      <label>NÚMERO DA CAIXA</label>
+      <input type="text" name="numero_caixa" required>
+
+      <label>MAÇO</label>
+      <input type="text" name="maco" required>
+
+      <label>TOTAL FOLHAS (opcional)</label>
+      <input type="number" name="total_folhas" min="0" step="1">
+
+      <label>IDENTIFICAÇÃO DOC</label>
+      <input type="text" name="identificacao_doc" required>
+
+      <!-- Campos SIM/NÃO -->
+      <label>RASGADO</label>
+      <div class="radio-group">
+        <label><input type="radio" name="rasgado" value="SIM" required> SIM</label>
+        <label><input type="radio" name="rasgado" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>MANCHAS</label>
+      <div class="radio-group">
+        <label><input type="radio" name="manchas" value="SIM" required> SIM</label>
+        <label><input type="radio" name="manchas" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>DANO POR FERRUGEM</label>
+      <div class="radio-group">
+        <label><input type="radio" name="dano_ferrugem" value="SIM" required> SIM</label>
+        <label><input type="radio" name="dano_ferrugem" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>ACIDIFICADO</label>
+      <div class="radio-group">
+        <label><input type="radio" name="acidificado" value="SIM" required> SIM</label>
+        <label><input type="radio" name="acidificado" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>SEM PERDA DE INFORMAÇÃO</label>
+      <div class="radio-group">
+        <label><input type="radio" name="sem_perda" value="SIM" required> SIM</label>
+        <label><input type="radio" name="sem_perda" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>COM PERDA DE INFORMAÇÃO</label>
+      <div class="radio-group">
+        <label><input type="radio" name="com_perda" value="SIM" required> SIM</label>
+        <label><input type="radio" name="com_perda" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>PÁGINAS FALTANDO</label>
+      <div class="radio-group">
+        <label><input type="radio" name="paginas_faltando" value="SIM" required> SIM</label>
+        <label><input type="radio" name="paginas_faltando" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>PÁGINAS COLADAS</label>
+      <div class="radio-group">
+        <label><input type="radio" name="paginas_coladas" value="SIM" required> SIM</label>
+        <label><input type="radio" name="paginas_coladas" value="NÃO"> NÃO</label>
+      </div>
+
+      <label>BOM ESTADO</label>
+      <select name="bom_estado" required>
+        <option value="">Selecione</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+        <option>PARCIAL</option>
+      </select>
+
+      <label>INDICAÇÃO DE RESTAURAÇÃO?</label>
+      <select name="indicacao_restauracao" required>
+        <option value="">Selecione</option>
+        <option>SIM</option>
+        <option>NÃO</option>
+        <option>PARCIAL</option>
+      </select>
+
+      <label>VOLUME</label>
+      <select name="volume" required>
+        <option value="">Selecione</option>
+        <option>Até 15 %</option>
+        <option>Até 30 %</option>
+        <option>Até 50 %</option>
+        <option>Acima de 50 %</option>
+      </select>
+
+      <label>OBS</label>
+      <textarea name="obs" required rows="3"></textarea>
+
+      <label>INÍCIO</label>
+      <input type="date" name="inicio" required>
+
+      <label>FINALIZADO</label>
+      <input type="date" name="finalizado" required>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('docForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const totalFolhas = event.target.total_folhas.value.trim();
+
+      if (totalFolhas !== '') {
+        const num = Number(totalFolhas);
+        if (!Number.isInteger(num) || num < 0) {
+          alert('Por favor, insira um número inteiro válido no campo TOTAL FOLHAS.');
+          event.target.total_folhas.focus();
+          return;
+        }
+      }
+
+      const data = Object.fromEntries(new FormData(event.target));
+      const response = await fetch('SEU_URL_DO_SCRIPT_GOOGLE_APPS_SCRIPT', {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if (response.ok) {
+        alert('Dados enviados com sucesso!');
+        event.target.reset();
+      } else {
+        alert('Erro ao enviar os dados.');
+      }
+    });
+  </script>
+</body>
+</html>
